@@ -1,0 +1,2472 @@
+<html lang="en">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacred Services Premium - Divine Chanting & Prayer Subscriptions</title>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe4cc 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #8B4513 0%, #CD853F 100%);
+            color: white;
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header .container {
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FFD700;
+            flex-shrink: 0;
+            padding-left: 20px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            margin-right: 5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin-left: auto;
+            justify-content: flex-end;
+            padding-right: 10px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            max-width: calc(100vw - 300px);
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .nav-links::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 0.6rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+            background-color: rgba(255, 215, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .login-btn {
+            background: #FFD700 !important;
+            color: #8B4513 !important;
+            padding: 8px 16px !important;
+            border-radius: 20px !important;
+            font-weight: bold !important;
+        }
+
+        .login-btn:hover {
+            background: #FFA500 !important;
+            color: white !important;
+        }
+
+        /* Page System */
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .main-content.hidden {
+            display: none;
+        }
+
+        /* Login/Signup Page */
+        .auth-container {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe4cc 100%);
+        }
+
+        .auth-box {
+            background: white;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 2rem;
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            background: #f5f5f5;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .auth-tab.active {
+            background: #8B4513;
+            color: white;
+        }
+
+        .auth-tab:first-child {
+            border-radius: 8px 0 0 8px;
+        }
+
+        .auth-tab:last-child {
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Checkout Page */
+        .checkout-container {
+            min-height: 80vh;
+            padding: 2rem 0;
+            background: #FFF8DC;
+        }
+
+        .checkout-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .order-summary {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+
+        .payment-options {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-option {
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .payment-option:hover,
+        .payment-option.selected {
+            border-color: #FFD700;
+            background: #FFF8DC;
+        }
+
+        .payment-option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-total {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #8B4513;
+            padding-top: 1rem;
+            border-top: 2px solid #FFD700;
+        }
+
+        /* Reviews Section */
+        .reviews-page {
+            background: white;
+            padding: 2rem 0;
+        }
+
+        .review-form {
+            background: #FFF8DC;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 5px;
+            margin: 1rem 0;
+        }
+
+        .star {
+            font-size: 2rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .star:hover,
+        .star.active {
+            color: #FFD700;
+        }
+
+        .review-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+            color: #8B4513;
+        }
+
+        .review-date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .review-stars {
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-btn {
+            background: #666;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            background: #555;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(139, 69, 19, 0.7), rgba(205, 133, 63, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23CD853F" width="1200" height="600"/><circle fill="%23FFD700" opacity="0.3" cx="300" cy="150" r="80"/><circle fill="%23FF6B35" opacity="0.2" cx="900" cy="400" r="120"/></svg>');
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            background: #FFD700;
+            color: #8B4513;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #FFA500;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        /* Background Logo for all sections */
+        section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background-image: url('logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Fallback for sections without logo image */
+        section.no-logo::before {
+            content: '🕉️';
+            font-size: 150px;
+            color: rgba(139, 69, 19, 0.05);
+            background-image: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 200px;
+        }
+
+        /* Ensure content is above background logo */
+        section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #eecd11;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            text-align: center;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            padding: 2rem;
+            border-radius: 15px;
+            color: #8B4513;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Services Section */
+        .services {
+            background: #FFF8DC;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            border-left: 4px solid #FFD700;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-left-color: #FF6B35;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 107, 53, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card h3 {
+            color: #8B4513;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .telugu-text {
+            font-size: 0.9rem;
+            color: #FF6B35;
+            font-style: italic;
+            font-weight: normal;
+        }
+
+        .book-now-btn {
+            background: #FFD700;
+            color: #8B4513;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .service-card:hover .book-now-btn {
+            background: #FF6B35;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Payment Section */
+        .payment {
+            background: white;
+        }
+
+        .payment-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .payment-item {
+            background: #FFF8DC;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 3px solid #FFD700;
+        }
+
+        .payment-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .payment-item h4 {
+            color: #8B4513;
+            margin-bottom: 0.5rem;
+        }
+
+        .policy-list {
+            margin-top: 1.5rem;
+        }
+
+        .policy-item {
+            background: #FFF8DC;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #FFD700;
+        }
+
+        .payment-calculator {
+            background: linear-gradient(135deg, #8B4513 0%, #CD853F 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .calculator-form select {
+            width: 300px;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .calculation-result {
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .advance-amount,
+        .balance-amount {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .booking {
+            background: linear-gradient(135deg, #8B4513 0%, #CD853F 100%);
+            color: white;
+        }
+
+        .booking-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            aspect-ratio: 4/3;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8B4513;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: #FFF8DC;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #8B4513;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: white;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .contact-item {
+            background: #FFF8DC;
+            padding: 2rem;
+            border-radius: 20px;
+            border-top: 4px solid #FFD700;
+        }
+
+        .contact-item h3 {
+            color: #8B4513;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #8B4513;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* iPad Pro and Tablet Specific Styles */
+        @media (min-width: 769px) and (max-width: 1366px) {
+            .nav-links {
+                max-width: calc(100vw - 250px);
+                gap: 0.2rem;
+            }
+            
+            .nav-links a {
+                padding: 0.4rem 0.5rem;
+                font-size: 1rem;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+                padding-left: 15px;
+            }
+            
+            header .container {
+                padding: 0 20px;
+            }
+        }
+
+        /* iPad Pro Portrait Mode */
+        @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+            .menu-toggle {
+                display: block;
+                order: 3;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #8B4513;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+                z-index: 1001;
+                max-width: 100%;
+                overflow-x: visible;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 0.8rem 1rem;
+                font-size: 1.1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                text-align: center;
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #8B4513;
+                flex-direction: column;
+                padding: 1rem;
+                max-width: 100%;
+                overflow-x: visible;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .payment-info {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .payment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .calculator-form select {
+                width: 100%;
+            }
+
+            .checkout-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .back-btn {
+                width: 100%;
+            }
+        }
+
+        /* Calendar Styles */
+        .calendar {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: #ddd;
+        }
+
+        .calendar-day {
+            background: white;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calendar-day:hover {
+            background: #FFD700;
+            color: #8B4513;
+        }
+
+        .calendar-day.unavailable {
+            background: #f0f0f0;
+            color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .calendar-day.selected {
+            background: #8B4513;
+            color: white;
+        }
+
+        /* UPI Payment Styles */
+        .upi-payment-section {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .upi-pay-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #00D4AA, #00B894);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+            margin: 10px 0;
+        }
+
+        .upi-pay-btn:hover {
+            background: linear-gradient(135deg, #00B894, #00A085);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 170, 0.4);
+        }
+
+        .upi-fallback {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            text-align: left;
+        }
+
+        .upi-fallback ol {
+            margin-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .upi-fallback li {
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .upi-id-copy {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: monospace;
+            font-weight: bold;
+            color: #495057;
+            transition: background 0.2s;
+        }
+
+        .upi-id-copy:hover {
+            background: #FFD700;
+            color: #8B4513;
+        }
+
+        .upi-qr-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        .upi-qr-btn:hover {
+            background: #5a6268;
+        }
+
+        .upi-qr-modal {
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .qr-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #aaa;
+        }
+
+        .qr-close:hover {
+            color: #000;
+        }
+
+        .qr-placeholder {
+            width: 200px;
+            height: 200px;
+            border: 2px dashed #ccc;
+            margin: 1rem auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .qr-placeholder p {
+            margin: 0.25rem 0;
+            color: #666;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .upi-pay-btn {
+                width: 100%;
+                padding: 15px 20px;
+                font-size: 1.1rem;
+            }
+
+            .qr-modal-content {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+
+            .qr-placeholder {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        /* Success/Error message styles */
+        .upi-message {
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .upi-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .upi-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .upi-message.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="asset/image.png" alt="Sacred Services Logo" onerror="this.style.display='none';">
+                <span>Sacred Services</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="about-llc.html">Premium Plans</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#payment">Payment</a></li>
+                <li><a href="#booking">Book Now</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#reviews">Rate Us</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="login.html" class="login-btn" id="loginNavBtn">Login</a></li>
+            </ul>
+            <button class="menu-toggle">☰</button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Sacred Rituals & Blessings</h1>
+                    <p>Experienced Pandit for all your religious ceremonies and puja needs</p>
+                    <a href="#booking" class="btn">Book Your Puja Today</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About Godavarthi Sravan Kumar</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Welcome to the sacred services of Pandit Sravan Kumar, a dedicated and experienced priest
+                            with over 15 years of expertise in performing traditional Hindu rituals and ceremonies.</p>
+
+                        <p>With deep knowledge of Vedic scriptures and Sanskrit mantras, Pandit Sravan Kumar specializes
+                            in conducting various pujas, havans, and religious ceremonies with utmost devotion and
+                            authenticity. He has been blessed to serve thousands of families across the region, bringing
+                            spiritual peace and divine blessings to their homes.</p>
+
+                        <p>Whether it's a festival celebration, house warming, wedding ceremony, or any religious
+                            observance, Pandit Sravan Kumar ensures that every ritual is performed according to
+                            traditional Vedic guidelines while accommodating modern convenience and timing.</p>
+                    </div>
+                    <div class="about-image">
+                        <div>🕉️</div>
+                        <p>15+ Years Experience</p>
+                        <p>1000+ Happy Families</p>
+                        <p>Vedic Certified</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">Our Sacred Services</h2>
+                <div class="services-grid">
+                    <div class="service-card" onclick="bookService('griha-pravesh')">
+                        <h3>🏠 Griha Pravesh (Housewarming)<br><span class="telugu-text">గృహప్రవేశం</span></h3>
+                        <p>Traditional house warming ceremony with Vastu Shanti puja to bring prosperity and positive
+                            energy to your new home.</p>
+                        <div class="price">Starting from ₹2,500</div>
+                        <div class="book-now-btn">Book Now →</div>
+                    </div>
+                    <div class="service-card" onclick="bookService('wedding')">
+                        <h3>💒 Wedding Ceremonies<br><span class="telugu-text">వివాహ వేడుకలు</span></h3>
+                        <p>Complete Hindu wedding rituals including Haldi, Mehendi, Pheras, and all traditional
+                            ceremonies with proper Vedic mantras.</p>
+                        <div class="price">Starting from ₹15,000</div>
+                        <div class="book-now-btn">Book Now →</div>
+                    </div>
+                    <div class="service-card" onclick="bookService('ganesh-puja')">
+                        <h3>🙏 Ganesh Puja<br><span class="telugu-text">గణేష్ పూజ</span></h3>
+                        <p>Lord Ganesha worship for removing obstacles, new beginnings, and bringing good fortune to
+                            your endeavors.</p>
+                        <div class="price">Starting from ₹1,500</div>
+                        <div class="book-now-btn">Book Now →</div>
+                    </div>
+                    <div class="service-card" onclick="bookService('lakshmi-puja')">
+                        <h3>💡 Lakshmi Puja<br><span class="telugu-text">లక్ష్మీ పూజ</span></h3>
+                        <p>Goddess Lakshmi worship for wealth, prosperity, and abundance in your home and business.</p>
+                        <div class="price">Starting from ₹2,000</div>
+                        <div class="book-now-btn">Book Now →</div>
+                    </div>
+                    <div class="service-card" onclick="bookService('havan')">
+                        <h3>🔥 Havan & Yagya<br><span class="telugu-text">హవనం & యజ్ఞం</span></h3>
+                        <p>Sacred fire ceremonies for purification, healing, and fulfilling specific spiritual and
+                            material desires.</p>
+                        <div class="price">Starting from ₹3,000</div>
+                        <div class="book-now-btn">Book Now →</div>
+                    </div>
+                    <div class="service-card" onclick="bookService('festival')">
+                        <h3>🎉 Festival Celebrations<br><span class="telugu-text">పండుగ వేడుకలు</span></h3>
+                        <p>All major Hindu festival pujas including Diwali, Navratri, Karva Chauth, and seasonal
+                            celebrations.</p>
+                        <div class="price">Starting from ₹1,800</div>
+                        <div class="book-now-btn">Book Now →</div>
+                    </div>
+                    <div class="service-card" onclick="bookService('namkaran')">
+                        <h3>👶 Naming Ceremony (Namkaran)<br><span class="telugu-text">నామకరణం</span></h3>
+                        <p>Traditional baby naming ceremony with astrological consultation and blessing rituals for your
+                            newborn.</p>
+                        <div class="price">Starting from ₹2,200</div>
+                        <div class="book-now-btn">Book Now →</div>
+                    </div>
+                    <div class="service-card" onclick="bookService('shraddh')">
+                        <h3>🕯️ Pitra Paksha & Shraddh<br><span class="telugu-text">పితృ పక్షం & శ్రాద్ధం</span></h3>
+                        <p>Ancestral worship and offerings for the peace and blessings of departed souls.</p>
+                        <div class="price">Starting from ₹3,500</div>
+                        <div class="book-now-btn">Book Now →</div>
+                    </div>
+                    <div class="service-card" onclick="bookService('personal')">
+                        <h3>📿 Personal Puja Services<br><span class="telugu-text">వ్యక్తిగత పూజా సేవలు</span></h3>
+                        <p>Customized puja services for personal prayers, health, success, and spiritual growth.</p>
+                        <div class="price">Starting from ₹1,200</div>
+                        <div class="book-now-btn">Book Now →</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Services Section -->
+        <section id="payment" class="payment">
+            <div class="container">
+                <h2 class="section-title">Payment Options</h2>
+                <div class="payment-info">
+                    <div class="payment-methods">
+                        <h3>💳 Accepted Payment Methods</h3>
+                        <div class="payment-grid">
+                            <div class="payment-item">
+                                <div class="payment-icon">💰</div>
+                                <h4>Cash Payment</h4>
+                                <p>Pay directly to Pandit ji after the ceremony completion</p>
+                            </div>
+                            <div class="payment-item">
+                                <div class="payment-icon">📱</div>
+                                <h4>UPI Payment</h4>
+                                <p>PhonePe, Google Pay, Paytm<br>UPI ID: sravankumar.godavarthi@okicici</p>
+                            </div>
+                            <div class="payment-item">
+                                <div class="payment-icon">🏦</div>
+                                <h4>Bank Transfer</h4>
+                                <p>Direct bank transfer available<br>Account details provided after booking</p>
+                            </div>
+                            <div class="payment-item">
+                                <div class="payment-icon">💳</div>
+                                <h4>Online Payment</h4>
+                                <p>Secure online payment gateway<br>All major cards accepted</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-policies">
+                        <h3>📋 Payment Policies</h3>
+                        <div class="policy-list">
+                            <div class="policy-item">
+                                <strong>Advance Booking:</strong> 50% advance required for ceremony booking confirmation
+                            </div>
+                            <div class="policy-item">
+                                <strong>Balance Payment:</strong> Remaining amount to be paid on the day of ceremony
+                            </div>
+                            <div class="policy-item">
+                                <strong>Cancellation:</strong> 48 hours notice required for cancellation with full
+                                refund
+                            </div>
+                            <div class="policy-item">
+                                <strong>Rescheduling:</strong> Free rescheduling allowed up to 24 hours before ceremony
+                            </div>
+                            <div class="policy-item">
+                                <strong>Travel Charges:</strong> Additional charges may apply for locations beyond 25km
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="payment-item upi-payment-item">
+                    <div class="payment-icon">📱</div>
+                    <h4>UPI Payment</h4>
+                    <p>PhonePe, Google Pay, Paytm</p>
+                    <p><strong>UPI ID:</strong> sravankumar.godavarthi@okicici</p>
+                    
+                    <!-- UPI Payment Button -->
+                    <div class="upi-payment-section">
+                        <a href="upi://pay?pa=sravankumar.godavarthi@okicici&pn=Sacred%20Services&mc=0000&tid=txn123&tr=booking&tn=Sacred%20Services%20Booking%20Payment&am=&cu=INR" 
+                           class="upi-pay-btn" id="upiPayBtn" onclick="handleUPIPayment(event)">
+                            💳 Pay with UPI
+                        </a>
+                        
+                        <!-- Fallback instructions -->
+                        <div class="upi-fallback" id="upiFallback" style="display: none;">
+                            <p><strong>Manual Payment Instructions:</strong></p>
+                            <ol>
+                                <li>Open your UPI app (PhonePe, Google Pay, Paytm, etc.)</li>
+                                <li>Select "Send Money" or "Pay"</li>
+                                <li>Enter UPI ID: <span class="upi-id-copy" onclick="copyUPIId()">sravankumar.godavarthi@okicici</span></li>
+                                <li>Enter the amount and complete payment</li>
+                                <li>Share payment screenshot via WhatsApp: <a href="https://wa.me/919705112647" target="_blank">+91 97051 12647</a></li>
+                            </ol>
+                        </div>
+                        
+                        <!-- QR Code option -->
+                        <div class="upi-qr-section">
+                            <button class="upi-qr-btn" onclick="showUPIQR()">📱 Show QR Code</button>
+                            <div class="upi-qr-modal" id="upiQRModal" style="display: none;">
+                                <div class="qr-modal-content">
+                                    <span class="qr-close" onclick="hideUPIQR()">&times;</span>
+                                    <h3>Scan QR Code to Pay</h3>
+                                    <div class="qr-code-placeholder">
+                                        <!-- You can replace this with actual QR code image -->
+                                        <div class="qr-placeholder">
+                                            <p>QR Code</p>
+                                            <p><small>sravankumar.godavarthi@okicici</small></p>
+                                        </div>
+                                    </div>
+                                    <p>Scan this QR code with any UPI app to make payment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-calculator">
+                    <h3>💡 Quick Payment Calculator</h3>
+                    <div class="calculator-form">
+                        <select id="serviceCalculator">
+                            <option value="">Select Service</option>
+                            <option value="1500">Ganesh Puja - ₹1,500</option>
+                            <option value="1200">Personal Puja - ₹1,200</option>
+                            <option value="1800">Festival Celebrations - ₹1,800</option>
+                            <option value="2000">Lakshmi Puja - ₹2,000</option>
+                            <option value="2200">Naming Ceremony - ₹2,200</option>
+                            <option value="2500">Griha Pravesh - ₹2,500</option>
+                            <option value="3000">Havan & Yagya - ₹3,000</option>
+                            <option value="3500">Pitra Paksha - ₹3,500</option>
+                            <option value="15000">Wedding Ceremonies - ₹15,000</option>
+                        </select>
+                        <div class="calculation-result" id="paymentResult">
+                            <div class="advance-amount">Advance Amount: ₹<span id="advanceAmount">0</span></div>
+                            <div class="balance-amount">Balance on Ceremony Day: ₹<span id="balanceAmount">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="booking" class="booking">
+            <div class="container">
+                <h2 class="section-title">Book Your Puja</h2>
+                <div class="booking-form">
+                    <form id="bookingForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Select Service *</label>
+                                <select id="service" name="service" required>
+                                    <option value="">Choose a service</option>
+                                    <option value="griha-pravesh">Griha Pravesh (Housewarming)</option>
+                                    <option value="wedding">Wedding Ceremonies</option>
+                                    <option value="ganesh-puja">Ganesh Puja</option>
+                                    <option value="lakshmi-puja">Lakshmi Puja</option>
+                                    <option value="havan">Havan & Yagya</option>
+                                    <option value="festival">Festival Celebrations</option>
+                                    <option value="namkaran">Naming Ceremony</option>
+                                    <option value="shraddh">Pitra Paksha & Shraddh</option>
+                                    <option value="personal">Personal Puja Services</option>
+                                    <option value="other">Other (Please specify)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Preferred Date *</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Preferred Time</label>
+                                <select id="time" name="time">
+                                    <option value="">Select time</option>
+                                    <option value="morning">Morning (6:00 AM - 12:00 PM)</option>
+                                    <option value="afternoon">Afternoon (12:00 PM - 4:00 PM)</option>
+                                    <option value="evening">Evening (4:00 PM - 8:00 PM)</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Complete Address *</label>
+                            <textarea id="address" name="address" rows="3" required
+                                placeholder="Please provide your complete address where the puja will be conducted"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="requirements">Special Requirements or Details</label>
+                            <textarea id="requirements" name="requirements" rows="4"
+                                placeholder="Please mention any specific requirements, number of people attending, or other important details"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Submit Booking
+                            Request</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <h2 class="section-title">Sacred Moments Gallery</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">Wedding Ceremony Photos</div>
+                    <div class="gallery-item">Ganesh Puja Celebration</div>
+                    <div class="gallery-item">Havan & Yagya</div>
+                    <div class="gallery-item">Lakshmi Puja</div>
+                    <div class="gallery-item">Festival Celebrations</div>
+                    <div class="gallery-item">Griha Pravesh Ceremony</div>
+                </div>
+                <p style="text-align: center; margin-top: 2rem; color: #666;">
+                    <em>Photo gallery will be updated with actual ceremony photographs. Please contact us to see recent
+                        ceremony photos.</em>
+                </p>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="reviews">
+            <div class="container">
+                <h2 class="section-title">Customer Reviews & Ratings</h2>
+
+                <!-- Write Review Form -->
+                <div class="review-form">
+                    <h3>Write Your Review</h3>
+                    <form id="reviewForm">
+                        <div class="form-group">
+                            <label>Your Rating:</label>
+                            <div class="star-rating" id="starRating">
+                                <span class="star" data-rating="1">★</span>
+                                <span class="star" data-rating="2">★</span>
+                                <span class="star" data-rating="3">★</span>
+                                <span class="star" data-rating="4">★</span>
+                                <span class="star" data-rating="5">★</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="reviewerName">Your Name *</label>
+                                <input type="text" id="reviewerName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="reviewerService">Service Used</label>
+                                <select id="reviewerService">
+                                    <option value="">Select service</option>
+                                    <option value="griha-pravesh">Griha Pravesh</option>
+                                    <option value="wedding">Wedding Ceremonies</option>
+                                    <option value="ganesh-puja">Ganesh Puja</option>
+                                    <option value="lakshmi-puja">Lakshmi Puja</option>
+                                    <option value="havan">Havan & Yagya</option>
+                                    <option value="festival">Festival Celebrations</option>
+                                    <option value="namkaran">Naming Ceremony</option>
+                                    <option value="shraddh">Pitra Paksha & Shraddh</option>
+                                    <option value="personal">Personal Puja Services</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reviewText">Your Review *</label>
+                            <textarea id="reviewText" rows="4" required
+                                placeholder="Share your experience with our services..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn">Submit Review</button>
+                    </form>
+                </div>
+
+                <! -- Reviews Display -->
+                    <div class="reviews-display" id="reviewsDisplay">
+                        <!-- Sample reviews will be populated by JavaScript -->
+                    </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Login/Signup Page -->
+    <div id="loginPage" class="page">
+        <div class="auth-container">
+            <div class="container">
+                <div class="auth-box">
+                    <div class="auth-tabs">
+                        <button class="auth-tab active" onclick="switchAuthTab('login')">Login</button>
+                        <button class="auth-tab" onclick="switchAuthTab('signup')">Sign Up</button>
+                    </div>
+
+                    <!-- Login Form -->
+                    <form id="loginForm" class="auth-form">
+                        <h2 style="text-align: center; color: #8B4513; margin-bottom: 1.5rem;">Welcome Back</h2>
+
+                        <div class="form-group">
+                            <label for="loginEmail">Email Address *</label>
+                            <input type="email" id="loginEmail" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loginPhone">Phone Number *</label>
+                            <input type="tel" id="loginPhone" required>
+                        </div>
+
+                        <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Login</button>
+
+                        <p style="text-align: center; margin-top: 1rem; color: #666;">
+                            Don't have an account? <a href="#" onclick="switchAuthTab('signup')"
+                                style="color: #8B4513;">Sign up here</a>
+                        </p>
+                    </form>
+
+                    <!-- Signup Form -->
+                    <form id="signupForm" class="auth-form" style="display: none;">
+                        <h2 style="text-align: center; color: #8B4513; margin-bottom: 1.5rem;">Create Account</h2>
+
+                        <div class="form-group">
+                            <label for="signupName">Full Name *</label>
+                            <input type="text" id="signupName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signupEmail">Email Address *</label>
+                            <input type="email" id="signupEmail" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signupPhone">Phone Number *</label>
+                            <input type="tel" id="signupPhone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signupAddress">Address</label>
+                            <textarea id="signupAddress" rows="2"
+                                placeholder="Your address for service delivery"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Create Account</button>
+
+                        <p style="text-align: center; margin-top: 1rem; color: #666;">
+                            Already have an account? <a href="#" onclick="switchAuthTab('login')"
+                                style="color: #8B4513;">Login here</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Page -->
+    <div id="checkoutPage" class="page">
+        <div class="checkout-container">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showMainContent()">← Back to Services</a>
+
+                <h1 style="text-align: center; color: #8B4513; margin-bottom: 2rem;">Checkout</h1>
+
+                <div class="checkout-content">
+                    <!-- Order Summary -->
+                    <div class="order-summary">
+                        <h2 style="color: #8B4513; margin-bottom: 1.5rem;">Order Summary</h2>
+
+                        <div class="order-item">
+                            <div>
+                                <h4 id="selectedServiceName">Selected Service</h4>
+                                <p id="selectedServiceDesc">Service description</p>
+                            </div>
+                            <div>
+                                <strong id="selectedServicePrice">₹0</strong>
+                            </div>
+                        </div>
+
+                        <div class="order-item">
+                            <div>Travel Charges</div>
+                            <div>₹200</div>
+                        </div>
+
+                        <div class="order-item">
+                            <div>Service Fee</div>
+                            <div>₹100</div>
+                        </div>
+
+                        <div class="order-item order-total">
+                            <div>Total Amount</div>
+                            <div id="totalAmount">₹0</div>
+                        </div>
+
+                        <div style="margin-top: 1.5rem; padding: 1rem; background: #FFF8DC; border-radius: 8px;">
+                            <strong>Advance Payment (50%): ₹<span id="advanceAmount">0</span></strong>
+                            <p style="margin-top: 0.5rem; color: #666;">Remaining balance of ₹<span
+                                    id="balanceAmount">0</span> to be paid on ceremony day</p>
+                        </div>
+                    </div>
+
+                    <!-- Payment Options -->
+                    <div class="payment-options">
+                        <h2 style="color: #8B4513; margin-bottom: 1.5rem;">Payment Method</h2>
+
+                        <div class="payment-option" onclick="selectPayment('upi')">
+                            <input type="radio" name="payment" value="upi" id="upi">
+                            <label for="upi">
+                                <strong>📱 UPI Payment</strong>
+                                <p>Pay using PhonePe, Google Pay, Paytm, or any UPI app</p>
+                            </label>
+                        </div>
+
+                        <div class="payment-option" onclick="selectPayment('card')">
+                            <input type="radio" name="payment" value="card" id="card">
+                            <label for="card">
+                                <strong>💳 Credit/Debit Card</strong>
+                                <p>Secure payment with Visa, MasterCard, RuPay</p>
+                            </label>
+                        </div>
+
+                        <div class="payment-option" onclick="selectPayment('netbanking')">
+                            <input type="radio" name="payment" value="netbanking" id="netbanking">
+                            <label for="netbanking">
+                                <strong>🏦 Net Banking</strong>
+                                <p>Direct payment from your bank account</p>
+                            </label>
+                        </div>
+
+                        <div class="payment-option" onclick="selectPayment('cash')">
+                            <input type="radio" name="payment" value="cash" id="cash">
+                            <label for="cash">
+                                <strong>💰 Cash on Service</strong>
+                                <p>Pay advance now, remaining cash to pandit ji on ceremony day</p>
+                            </label>
+                        </div>
+
+                        <!-- Customer Details Form -->
+                        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #ddd;">
+                            <h3 style="color: #8B4513; margin-bottom: 1rem;">Customer Details</h3>
+                            <form id="checkoutForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Full Name *</label>
+                                        <input type="text" id="customerName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Phone Number *</label>
+                                        <input type="tel" id="customerPhone" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Service Address *</label>
+                                    <textarea id="serviceAddress" rows="3" required
+                                        placeholder="Complete address where puja will be conducted"></textarea>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Preferred Date *</label>
+                                        <input type="date" id="serviceDate" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Preferred Time</label>
+                                        <select id="serviceTime">
+                                            <option value="morning">Morning (6:00 AM - 12:00 PM)</option>
+                                            <option value="afternoon">Afternoon (12:00 PM - 4:00 PM)</option>
+                                            <option value="evening">Evening (4:00 PM - 8:00 PM)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Special Requirements</label>
+                                    <textarea id="specialRequirements" rows="2"
+                                        placeholder="Any special requirements or instructions"></textarea>
+                                </div>
+
+                                <button type="submit" class="btn"
+                                    style="width: 100%; margin-top: 1.5rem; font-size: 1.1rem;">
+                                    Proceed to Payment - ₹<span id="paymentAmount">0</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!DOCTYPE html>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Families Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-text">"Pandit Sravan Kumar conducted our house warming ceremony beautifully.
+                        His knowledge of the rituals and attention to detail made the occasion truly special and
+                        blessed."</div>
+                    <div class="testimonial-author">- Priya & Rajesh Gupta</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">"We have been taking Pandit Sravan Kumar's services for all our family
+                        functions for the past 3 years. He is punctual, knowledgeable, and very respectful."</div>
+                    <div class="testimonial-author">- Meera Sharma</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">"Our wedding ceremony was perfectly conducted by Pandit ji. All the
+                        rituals were explained to us, and he made sure everything was authentic and meaningful."</div>
+                    <div class="testimonial-author">- Anita & Vikash Singh</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Information</h2>
+            <div class="contact-info">
+                <div class="contact-item phone-contact">
+                    <h3>📞 Phone</h3>
+                    <p><b>tell No:</b>+91 97051 12647<br><b>tell No:</b>+91 9676416223</p>
+                </div>
+                <style>
+                    .phone-contact {
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+                    }
+
+                    .phone-contact:hover {
+                        background-color: #e26c185e;
+                    }
+
+                    .phone-contact p {
+                        color: inherit;
+                        text-decoration: none;
+                    }
+                </style>
+                <div class="contact-item email-contact">
+                    <h3>📧 Email</h3>
+                    <p><b>sravankumar.godavarthi@gmail.com</b></p>
+                </div>
+                <style>
+                    .email-contact {
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+                    }
+
+                    .email-contact:hover {
+                        background-color: #e26c185e;
+                    }
+
+                    .email-contact p {
+                        color: inherit;
+                        text-decoration: none;
+                    }
+                </style>
+                <div class="contact-item location-contact">
+                    <h3>📍 Dammaiguda</h3>
+                    <p><b>H.NO: 5, Kosinapally Brother's house, 1/198, PLOT NO:198</b>,<br>Lakeview Ext RdTelangana,
+                        500083</p>
+                </div>
+                <style>
+                    .location-contact {
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+                    }
+
+                    .location-contact:hover {
+                        background-color: #e26c185e;
+                    }
+
+                    .location-contact p {
+                        color: inherit;
+                        text-decoration: none;
+                    }
+                </style>
+                <div class="contact-item availability-contact">
+                    <h3>🕐 Availability</h3>
+                    <p>7 Days a Week<br>6:00 AM - 10:00 PM</p>
+                </div>
+                <style>
+                    .availability-contact {
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+                    }
+
+                    .availability-contact:hover {
+                        background-color: #e26c185e;
+                    }
+
+                    .availability-contact p {
+                        color: inherit;
+                        text-decoration: none;
+                    }
+                </style>
+                <div class="contact-item youtube-contact"
+                    onclick="window.open('https://www.youtube.com/channel/YOUR_CHANNEL_ID', '_blank')">
+                    <h3>📺 Youtube Channel</h3>
+                    <p><b>Learn Stotras</b><br><b>For Blessed Wisdom</b><br>Please do visit our youtube channel to learn
+                        Stotras</p>
+                </div>
+                <style>
+                    .youtube-contact {
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+                    }
+
+                    .youtube-contact:hover {
+                        background-color: #e26c185e;
+                    }
+
+                    .youtube-contact p {
+                        color: inherit;
+                        text-decoration: none;
+                    }
+                </style>
+                <div class="contact-item support-contact"
+                    onclick="window.open('https://www.youtube.com/channel/YOUR_CHANNEL_ID', '_blank')">
+                    <h3>📺 Q&A (Support)</h3>
+                    <p><b>learnstotras01@gmail.com</b><br>Please feel free to send us a message if you have any
+                        questions</p>
+                </div>
+                <style>
+                    .support-contact {
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+                    }
+
+                    .support-contact:hover {
+                        background-color: #e26c185e;
+                    }
+
+                    .support-contact p {
+                        color: inherit;
+                        text-decoration: none;
+                    }
+                </style>
+
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sacred Services. All rights reserved. | Bringing divine blessings to your doorstep</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Form submission
+        document.getElementById('bookingForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Collect form data
+            const formData = new FormData(this);
+            const bookingData = {};
+            for (let [key, value] of formData.entries()) {
+                bookingData[key] = value;
+            }
+
+            // Here you would typically send the data to your server
+            // For now, we'll show a confirmation message
+            alert('Thank you for your booking request! Pandit Sravan Kumar will contact you within 2-4 hours to confirm the details and discuss the arrangements.');
+
+            // Optional: Reset the form
+            this.reset();
+        });
+
+        // Function to book a specific service - now goes to checkout
+        function bookService(serviceValue) {
+            // Check if user is logged in
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+            if (!isLoggedIn) {
+                // Store the service they wanted to book
+                sessionStorage.setItem('pendingService', serviceValue);
+                // Redirect to login page
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Go directly to checkout if logged in
+            showCheckout(serviceValue);
+        }
+
+        function showCheckout(serviceValue) {
+            const services = {
+                'griha-pravesh': { name: 'Griha Pravesh (Housewarming)', price: 2500, desc: 'Traditional house warming ceremony' },
+                'wedding': { name: 'Wedding Ceremonies', price: 15000, desc: 'Complete Hindu wedding rituals' },
+                'ganesh-puja': { name: 'Ganesh Puja', price: 1500, desc: 'Lord Ganesha worship' },
+                'lakshmi-puja': { name: 'Lakshmi Puja', price: 2000, desc: 'Goddess Lakshmi worship' },
+                'havan': { name: 'Havan & Yagya', price: 3000, desc: 'Sacred fire ceremonies' },
+                'festival': { name: 'Festival Celebrations', price: 1800, desc: 'Hindu festival pujas' },
+                'namkaran': { name: 'Naming Ceremony', price: 2200, desc: 'Traditional baby naming ceremony' },
+                'shraddh': { name: 'Pitra Paksha & Shraddh', price: 3500, desc: 'Ancestral worship' },
+                'personal': { name: 'Personal Puja Services', price: 1200, desc: 'Customized puja services' }
+            };
+
+            const service = services[serviceValue];
+            if (service) {
+                document.getElementById('selectedServiceName').textContent = service.name;
+                document.getElementById('selectedServiceDesc').textContent = service.desc;
+                document.getElementById('selectedServicePrice').textContent = `₹${service.price}`;
+
+                const total = service.price + 200 + 100; // base price + travel + service fee
+                const advance = Math.round(total * 0.50);
+                const balance = total - advance;
+
+                document.getElementById('totalAmount').textContent = `₹${total}`;
+                document.getElementById('advanceAmount').textContent = advance;
+                document.getElementById('balanceAmount').textContent = balance;
+                document.getElementById('paymentAmount').textContent = advance;
+            }
+
+            showPage('checkoutPage');
+        }
+
+        function showPage(pageId) {
+            // Hide main content
+            document.querySelector('.main-content').classList.add('hidden');
+
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function showMainContent() {
+            // Show main content
+            document.querySelector('.main-content').classList.remove('hidden');
+
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+        }
+
+        // Auth system
+        function switchAuthTab(tab) {
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            const tabs = document.querySelectorAll('.auth-tab');
+
+            tabs.forEach(t => t.classList.remove('active'));
+
+            if (tab === 'login') {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+                tabs[0].classList.add('active');
+            } else {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+                tabs[1].classList.add('active');
+            }
+        }
+
+        // Login form submission
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById('loginEmail').value;
+            const phone = document.getElementById('loginPhone').value;
+
+            // Simulate login (in real app, validate against backend)
+            const userData = { email, phone, name: 'User' };
+            sessionStorage.setItem('user', JSON.stringify(userData));
+
+            alert('Login successful!');
+
+            // Check if they had a pending service booking
+            const pendingService = sessionStorage.getItem('pendingService');
+            if (pendingService) {
+                sessionStorage.removeItem('pendingService');
+                showCheckout(pendingService);
+            } else {
+                showMainContent();
+            }
+
+            // Update nav to show logout
+            updateNavigation();
+        });
+
+        // Signup form submission
+        document.getElementById('signupForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const phone = document.getElementById('signupPhone').value;
+            const address = document.getElementById('signupAddress').value;
+
+            // Simulate account creation
+            const userData = { name, email, phone, address };
+            sessionStorage.setItem('user', JSON.stringify(userData));
+
+            alert('Account created successfully!');
+
+            // Check if they had a pending service booking
+            const pendingService = sessionStorage.getItem('pendingService');
+            if (pendingService) {
+                sessionStorage.removeItem('pendingService');
+                showCheckout(pendingService);
+            } else {
+                showMainContent();
+            }
+
+            // Update nav to show logout
+            updateNavigation();
+        });
+
+        // Payment selection
+        function selectPayment(method) {
+            const options = document.querySelectorAll('.payment-option');
+            options.forEach(option => option.classList.remove('selected'));
+
+            const selectedOption = document.querySelector(`input[value="${method}"]`).closest('.payment-option');
+            selectedOption.classList.add('selected');
+
+            // Check the radio button
+            document.querySelector(`input[value="${method}"]`).checked = true;
+        }
+
+        // Checkout form submission
+        document.getElementById('checkoutForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const selectedPayment = document.querySelector('input[name="payment"]:checked');
+            if (!selectedPayment) {
+                alert('Please select a payment method');
+                return;
+            }
+
+            // Simulate payment processing
+            alert(`Payment initiated via ${selectedPayment.value.toUpperCase()}. You will receive booking confirmation shortly!`);
+
+            // In real app, process payment here
+            showMainContent();
+        });
+
+        // Navigation update for logged-in state
+        function updateNavigation() {
+            const loginLink = document.querySelector('a[href="#login"]');
+            const user = sessionStorage.getItem('user');
+
+            if (user) {
+                const userData = JSON.parse(user);
+                loginLink.textContent = `Hi, ${userData.name}`;
+                loginLink.onclick = logout;
+                loginLink.removeAttribute('href');
+                loginLink.style.cursor = 'pointer';
+            }
+        }
+
+        function logout() {
+            sessionStorage.removeItem('user');
+            location.reload(); // Simple logout - refresh page
+        }
+
+        // Star rating system
+        const stars = document.querySelectorAll('.star');
+        let selectedRating = 0;
+
+        stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                selectedRating = index + 1;
+                updateStars();
+            });
+
+            star.addEventListener('mouseover', () => {
+                highlightStars(index + 1);
+            });
+        });
+
+        document.getElementById('starRating').addEventListener('mouseleave', updateStars);
+
+        function updateStars() {
+            stars.forEach((star, index) => {
+                star.classList.toggle('active', index < selectedRating);
+            });
+        }
+
+        function highlightStars(rating) {
+            stars.forEach((star, index) => {
+                star.classList.toggle('active', index < rating);
+            });
+        }
+
+        // Review submission
+        document.getElementById('reviewForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            if (selectedRating === 0) {
+                alert('Please select a rating');
+                return;
+            }
+
+            const reviewerName = document.getElementById('reviewerName').value;
+            const reviewerService = document.getElementById('reviewerService').value;
+            const reviewText = document.getElementById('reviewText').value;
+
+            // Add review to display
+            addReviewToDisplay(reviewerName, selectedRating, reviewText, reviewerService);
+
+            alert('Thank you for your review!');
+            this.reset();
+            selectedRating = 0;
+            updateStars();
+        });
+
+        function addReviewToDisplay(name, rating, text, service) {
+            const reviewsContainer = document.getElementById('reviewsDisplay');
+            const reviewCard = document.createElement('div');
+            reviewCard.className = 'review-card';
+
+            const starsDisplay = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+            const serviceName = service ? ` - ${document.querySelector(`option[value="${service}"]`).textContent}` : '';
+
+            reviewCard.innerHTML = `
+                <div class="review-header">
+                    <div class="reviewer-name">${name}${serviceName}</div>
+                    <div class="review-date">${new Date().toLocaleDateString()}</div>
+                </div>
+                <div class="review-stars">${starsDisplay}</div>
+                <div class="review-text">${text}</div>
+            `;
+
+            reviewsContainer.insertBefore(reviewCard, reviewsContainer.firstChild);
+        }
+
+        // Initialize sample reviews
+        function initializeReviews() {
+            const sampleReviews = [
+                { name: 'Priya Sharma', rating: 5, text: 'Excellent service! Pandit ji conducted our Griha Pravesh beautifully.', service: 'griha-pravesh' },
+                { name: 'Rajesh Kumar', rating: 4, text: 'Very knowledgeable and punctual. Explained all rituals clearly.', service: 'wedding' },
+                { name: 'Meera Devi', rating: 5, text: 'Our family has been taking services for 3 years. Highly recommended!', service: 'festival' }
+            ];
+
+            sampleReviews.forEach(review => {
+                addReviewToDisplay(review.name, review.rating, review.text, review.service);
+            });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeReviews();
+            updateNavigation();
+
+            // Set minimum date for checkout
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('serviceDate').setAttribute('min', today);
+
+            // Check if user is logged in and update navigation
+            checkLoginStatus();
+
+            // Add UPI to checkout if checkout page exists
+            if (document.getElementById('checkoutPage')) {
+                addUPIToCheckout();
+            }
+        });
+
+        // Check login status and update navigation
+        function checkLoginStatus() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const user = JSON.parse(localStorage.getItem('user') || '{}');
+            const loginBtn = document.getElementById('loginNavBtn');
+
+            if (isLoggedIn && user.name) {
+                loginBtn.textContent = `Hi, ${user.name}`;
+                loginBtn.href = '#';
+                loginBtn.onclick = function (e) {
+                    e.preventDefault();
+                    logout();
+                };
+            }
+        }
+
+        // Updated logout function
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('user');
+                sessionStorage.clear();
+                location.reload();
+            }
+        }
+
+        // Payment calculator
+        document.getElementById('serviceCalculator').addEventListener('change', function () {
+            const baseAmount = parseInt(this.value) || 0;
+            const advance = Math.round(baseAmount * 0.50);
+            const balance = baseAmount - advance;
+
+            document.getElementById('advanceAmount').textContent = advance;
+            document.getElementById('balanceAmount').textContent = balance;
+
+            // Update UPI button with amount
+            const upiBtn = document.getElementById('upiPayBtn');
+            if (advance > 0) {
+                upiBtn.href = `upi://pay?pa=sravankumar.godavarthi@okicici&pn=Sacred%20Services&tn=Sacred%20Services%20Advance%20Payment&am=${advance}&cu=INR`;
+                upiBtn.innerHTML = `💳 Pay ₹${advance} with UPI`;
+            } else {
+                upiBtn.href = `upi://pay?pa=sravankumar.godavarthi@okicici&pn=Sacred%20Services&tn=Sacred%20Services%20Payment&cu=INR`;
+                upiBtn.innerHTML = `💳 Pay with UPI`;
+            }
+        });
+
+        // UPI Payment Handler
+        function handleUPIPayment(event) {
+            // Check if device supports UPI
+            const userAgent = navigator.userAgent.toLowerCase();
+            const isMobile = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/.test(userAgent);
+            const isAndroid = /android/.test(userAgent);
+            const isIOS = /iphone|ipad|ipod/.test(userAgent);
+
+            // For desktop or unsupported devices, show fallback
+            if (!isMobile) {
+                event.preventDefault();
+                showUPIFallback('This feature works best on mobile devices with UPI apps installed.');
+                return;
+            }
+
+            // For mobile devices, let the UPI intent handle
+            // Add a timeout to show fallback if UPI app doesn't open
+            setTimeout(() => {
+                showUPIFallback('If UPI app didn\'t open, please follow the manual instructions below:');
+            }, 3000);
+        }
+
+        function showUPIFallback(message = '') {
+            const fallback = document.getElementById('upiFallback');
+            fallback.style.display = 'block';
+
+            if (message) {
+                // Add message at the top of fallback
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'upi-message info';
+                messageDiv.textContent = message;
+                fallback.insertBefore(messageDiv, fallback.firstChild);
+            }
+
+            // Scroll to fallback
+            fallback.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function copyUPIId() {
+            const upiId = 'sravankumar.godavarthi@okicici';
+
+            // Try to copy to clipboard
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(upiId).then(() => {
+                    showUPIMessage('UPI ID copied to clipboard!', 'success');
+                }).catch(() => {
+                    fallbackCopyUPIId(upiId);
+                });
+            } else {
+                fallbackCopyUPIId(upiId);
+            }
+        }
+
+        function fallbackCopyUPIId(upiId) {
+            // Fallback copy method
+            const textArea = document.createElement('textarea');
+            textArea.value = upiId;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                document.execCommand('copy');
+                showUPIMessage('UPI ID copied to clipboard!', 'success');
+            } catch (err) {
+                showUPIMessage('Please manually copy: ' + upiId, 'info');
+            }
+
+            document.body.removeChild(textArea);
+        }
+
+        function showUPIMessage(message, type) {
+            // Remove existing messages
+            const existingMessages = document.querySelectorAll('.upi-message');
+            existingMessages.forEach(msg => msg.remove());
+
+            // Create new message
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `upi-message ${type}`;
+            messageDiv.textContent = message;
+
+            // Insert after UPI button
+            const upiBtn = document.getElementById('upiPayBtn');
+            upiBtn.parentNode.insertBefore(messageDiv, upiBtn.nextSibling);
+
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                if (messageDiv.parentNode) {
+                    messageDiv.remove();
+                }
+            }, 3000);
+        }
+
+        function showUPIQR() {
+            document.getElementById('upiQRModal').style.display = 'flex';
+        }
+
+        function hideUPIQR() {
+            document.getElementById('upiQRModal').style.display = 'none';
+        }
+
+        // Enhanced UPI payment with amount
+        function payWithUPI(amount = '') {
+            const upiId = 'sravankumar.godavarthi@okicici';
+            const payeeName = 'Sacred Services';
+            const transactionNote = 'Sacred Services Booking Payment';
+
+            // Construct UPI URL with amount if provided
+            let upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&tn=${encodeURIComponent(transactionNote)}`;
+
+            if (amount && amount > 0) {
+                upiUrl += `&am=${amount}&cu=INR`;
+            }
+
+            // Create temporary link and click it
+            const tempLink = document.createElement('a');
+            tempLink.href = upiUrl;
+            tempLink.style.display = 'none';
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            document.body.removeChild(tempLink);
+
+            // Show fallback after delay
+            setTimeout(() => {
+                showUPIFallback(`If UPI app didn't open, please pay ₹${amount || '[Amount]'} manually using the instructions below:`);
+            }, 3000);
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function (event) {
+            const modal = document.getElementById('upiQRModal');
+            if (event.target === modal) {
+                hideUPIQR();
+            }
+        });
+
+        // Add UPI payment option to checkout page
+        function addUPIToCheckout() {
+            const checkoutUPIOption = document.querySelector('.payment-option input[value="upi"]');
+            if (checkoutUPIOption) {
+                const upiOptionDiv = checkoutUPIOption.closest('.payment-option');
+
+                // Add UPI pay button to checkout
+                const upiPayDiv = document.createElement('div');
+                upiPayDiv.innerHTML = `
+        <button type="button" class="upi-pay-btn" onclick="payWithUPI(document.getElementById('paymentAmount').textContent)" style="margin-top: 10px; font-size: 0.9rem; padding: 8px 16px;">
+            💳 Pay Now with UPI
+        </button>
+    `;
+                upiOptionDiv.appendChild(upiPayDiv);
+            }
+        }
+        const dateInput = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+    <style>
+        /* Fixed Background Image */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background-image: url('asset/image.png');
+            /* Replace with your actual image filename */
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            opacity: 0.4;
+            /* Increased visibility (0.4 = 40% visible) */
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Ensure all sections have a background to maintain readability */
+        section {
+            background-color: rgba(255, 255, 255, 0.85);
+            /* Semi-transparent white background */
+        }
+
+        /* Adjust hero section to work with background image */
+        .hero {
+            background: linear-gradient(rgba(139, 69, 19, 0.7), rgba(205, 133, 63, 0.7));
+        }
+    </style>
+
+</body>
+
+</html>
