@@ -1,3 +1,16 @@
+// Single-redirect guard
+(function(){
+  if (!sessionStorage.getItem('redirectGuard')) {
+    sessionStorage.setItem('redirectGuard', 'ready');
+  }
+})();
+function redirectOnce(url) {
+  if (sessionStorage.getItem('redirectGuard') !== 'done') {
+    sessionStorage.setItem('redirectGuard', 'done');
+    window.location.href = url;
+  }
+}
+
 // Authentication API client
 class AuthAPI {
   constructor() {
@@ -372,9 +385,9 @@ async function handleLogin(event) {
         const pendingService = sessionStorage.getItem('pendingService');
         if (pendingService) {
           sessionStorage.removeItem('pendingService');
-          window.location.href = `index.html#checkout-${pendingService}`;
+          redirectOnce(`index.html#checkout-${pendingService}`);
         } else {
-          window.location.href = 'index.html';
+          redirectOnce('index.html');
         }
       }, 1500);
     }
@@ -455,9 +468,9 @@ async function handleSignup(event) {
         const pendingService = sessionStorage.getItem('pendingService');
         if (pendingService) {
           sessionStorage.removeItem('pendingService');
-          window.location.href = `index.html#checkout-${pendingService}`;
+          redirectOnce(`index.html#checkout-${pendingService}`);
         } else {
-          window.location.href = 'index.html';
+          redirectOnce('index.html');
         }
       }, 2000);
     }
@@ -503,17 +516,7 @@ async function handleForgotPassword(email) {
 
 // Initialize authentication on page load
 document.addEventListener('DOMContentLoaded', function() {
-  // Check if user is already logged in
-  if (authAPI.isAuthenticated()) {
-    const user = authAPI.getStoredUser();
-    if (user && user.name) {
-      MessageSystem.show(`Welcome back, ${user.name}! Redirecting to your dashboard...`, 'success');
-      setTimeout(() => {
-        window.location.href = 'index.html';
-      }, 2000);
-      return;
-    }
-  }
+  // No auto-redirect to avoid navigation loops after login
   
   // Set up form event listeners
   const loginForm = document.getElementById('loginForm');

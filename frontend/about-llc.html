@@ -5,586 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sacred Services Premium - Divine Chanting & Prayer Subscriptions</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #fff;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #FFD700;
-        }
-
-        .logo img {
-            height: 40px;
-            width: auto;
-            margin-right: 10px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            background: linear-gradient(45deg, #FFD700, #FF6B35);
-            transform: translateY(-2px);
-        }
-
-        .back-home {
-            background: linear-gradient(45deg, #FFD700, #FF6B35) !important;
-            color: #000 !important;
-            font-weight: bold;
-        }
-
-        /* Hero Section - Updated for better centering */
-        .hero-section {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.3) 0%, transparent 50%),
-                linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #FFD700, #FF6B35, #FFD700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5)); }
-            to { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.8)); }
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            color: #ccc;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            line-height: 1.8;
-        }
-
-        .premium-badge {
-            display: inline-block;
-            background: linear-gradient(45deg, #FFD700, #FF6B35);
-            color: #000;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            margin-bottom: 2rem;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        /* Subscription Plans */
-        .plans-section {
-            padding: 5rem 0;
-            background: rgba(0, 0, 0, 0.5);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            background: linear-gradient(45deg, #FFD700, #FF6B35);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .plans-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .plan-card {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .plan-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .plan-card:hover::before {
-            left: 100%;
-        }
-
-        .plan-card:hover {
-            transform: translateY(-10px);
-            border-color: #FFD700;
-            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
-        }
-
-        .plan-card.popular {
-            border: 2px solid #FFD700;
-            transform: scale(1.05);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(45deg, #FFD700, #FF6B35);
-            color: #000;
-            padding: 5px 20px;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-
-        .plan-name {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            color: #FFD700;
-        }
-
-        .plan-price {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #fff;
-        }
-
-        .plan-duration {
-            color: #ccc;
-            margin-bottom: 2rem;
-        }
-
-        .plan-features {
-            list-style: none;
-            margin: 2rem 0;
-            text-align: left;
-        }
-
-        .plan-features li {
-            padding: 0.5rem 0;
-            color: #ccc;
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .plan-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #FFD700;
-            font-weight: bold;
-        }
-
-        .plan-button {
-            background: linear-gradient(45deg, #FFD700, #FF6B35);
-            color: #000;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .plan-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
-        }
-
-        /* Features Section - Enhanced with interactivity */
-        .features-section {
-            padding: 5rem 0;
-            background: rgba(26, 26, 46, 0.5);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .feature-card {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            border-color: #FFD700;
-            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3);
-        }
-
-        .feature-card.expanded {
-            transform: scale(1.05);
-            border-color: #FFD700;
-            background: linear-gradient(145deg, rgba(255, 215, 0, 0.15), rgba(255, 107, 53, 0.1));
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #FFD700;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover .feature-icon {
-            transform: scale(1.2) rotate(10deg);
-        }
-
-        .feature-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            color: #FFD700;
-        }
-
-        .feature-description {
-            color: #ccc;
-            line-height: 1.6;
-            transition: all 0.3s ease;
-        }
-
-        .feature-details {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 215, 0, 0.3);
-            color: #aaa;
-            font-size: 0.9rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .feature-card.expanded .feature-details {
-            max-height: 200px;
-        }
-
-        .feature-action-btn {
-            background: linear-gradient(45deg, #FFD700, #FF6B35);
-            color: #000;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(10px);
-        }
-
-        .feature-card.expanded .feature-action-btn {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .feature-action-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
-        }
-
-        /* Modal for feature details */
-        .feature-modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            background: linear-gradient(145deg, rgba(26, 26, 46, 0.95), rgba(10, 10, 10, 0.95));
-            margin: 5% auto;
-            padding: 2rem;
-            border: 2px solid #FFD700;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 600px;
-            position: relative;
-            backdrop-filter: blur(10px);
-        }
-
-        .close-modal {
-            color: #FFD700;
-            float: right;
-            font-size: 2rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .close-modal:hover {
-            color: #FF6B35;
-        }
-
-        .stats-section {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 107, 53, 0.1));
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 1rem;
-            text-align: center;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-
-        .stat-item {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 1.5rem 1rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            min-width: 150px;
-            height: 160px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        @media (max-width: 1200px) {
-            .stats-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-        }
-
-        .stat-number {
-            font-size: 2.8rem;
-            font-weight: bold;
-            color: #FFD700;
-            display: block;
-            line-height: 1.2;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            margin-top: 0.5rem;
-            color: #ccc;
-            text-align: center;
-            max-width: 140px;
-            word-wrap: break-word;
-            line-height: 1.3;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 5rem 0;
-            text-align: center;
-            background: linear-gradient(135deg, #0a0a0a, #1a1a2e);
-        }
-
-        .cta-button {
-            background: linear-gradient(45deg, #FFD700, #FF6B35);
-            color: #000;
-            padding: 20px 40px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            margin: 1rem;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.4);
-        }
-
-        /* Floating Elements */
-        .floating-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .floating-element {
-            position: absolute;
-            opacity: 0.1;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .floating-element:nth-child(1) {
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            top: 60%;
-            right: 10%;
-            animation-delay: 3s;
-        }
-
-        .floating-element:nth-child(3) {
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 6s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-30px) rotate(180deg);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .plans-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .plan-card.popular {
-                transform: none;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .modal-content {
-                width: 95%;
-                margin: 10% auto;
-                padding: 1.5rem;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #fff; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%); overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; padding: 1rem 0; border-bottom: 1px solid rgba(255, 215, 0, 0.3); }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; font-size: 1.8rem; font-weight: bold; color: #FFD700; }
+        .logo img { height: 40px; width: auto; margin-right: 10px; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 25px; transition: all 0.3s ease; font-weight: 500; }
+        .nav-links a:hover { background: linear-gradient(45deg, #FFD700, #FF6B35); transform: translateY(-2px); }
+        .back-home { background: linear-gradient(45deg, #FFD700, #FF6B35) !important; color: #000 !important; font-weight: bold; }
+        .hero-section { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.3) 0%, transparent 50%), linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%); position: relative; overflow: hidden; background-image: url('asset/image.png'); background-size: cover; background-position: center; background-repeat: no-repeat; }
+        .hero-content { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; max-width: 800px; margin: 0 auto; }
+        .hero-content h1 { font-size: 4rem; margin-bottom: 1rem; background: linear-gradient(45deg, #FFD700, #FF6B35, #FFD700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: glow 2s ease-in-out infinite alternate; }
+        @keyframes glow { from { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5)); } to { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.8)); } }
+        .hero-content p { font-size: 1.3rem; margin-bottom: 2rem; color: #ccc; max-width: 600px; margin-left: auto; margin-right: auto; text-align: center; line-height: 1.8; }
+        .premium-badge { display: inline-block; background: linear-gradient(45deg, #FFD700, #FF6B35); color: #000; padding: 10px 20px; border-radius: 25px; font-weight: bold; margin-bottom: 2rem; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        .plans-section { padding: 5rem 0; background: rgba(0, 0, 0, 0.5); }
+        .section-title { text-align: center; font-size: 3rem; margin-bottom: 3rem; background: linear-gradient(45deg, #FFD700, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin: 3rem 0; }
+        .plan-card { background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)); backdrop-filter: blur(10px); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 20px; padding: 2.5rem; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .plan-card::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent); transition: left 0.5s; }
+        .plan-card:hover::before { left: 100%; }
+        .plan-card:hover { transform: translateY(-10px); border-color: #FFD700; box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3); }
+        .plan-card.popular { border: 2px solid #FFD700; transform: scale(1.05); }
+        .popular-badge { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: linear-gradient(45deg, #FFD700, #FF6B35); color: #000; padding: 5px 20px; border-radius: 15px; font-size: 0.9rem; font-weight: bold; }
+        .plan-name { font-size: 1.8rem; font-weight: bold; margin-bottom: 1rem; color: #FFD700; }
+        .plan-price { font-size: 3rem; font-weight: bold; margin-bottom: 0.5rem; color: #fff; }
+        .plan-duration { color: #ccc; margin-bottom: 2rem; }
+        .plan-features { list-style: none; margin: 2rem 0; text-align: left; }
+        .plan-features li { padding: 0.5rem 0; color: #ccc; position: relative; padding-left: 2rem; }
+        .plan-features li::before { content: '✓'; position: absolute; left: 0; color: #FFD700; font-weight: bold; }
+        .plan-button { background: linear-gradient(45deg, #FFD700, #FF6B35); color: #000; border: none; padding: 15px 30px; border-radius: 25px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: all 0.3s ease; width: 100%; }
+        .plan-button:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4); }
+        .features-section { padding: 5rem 0; background: rgba(26, 26, 46, 0.5); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0; }
+        .feature-card { background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)); backdrop-filter: blur(10px); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 15px; padding: 2rem; text-align: center; transition: all 0.3s ease; cursor: pointer; position: relative; overflow: hidden; }
+        .feature-card:hover { transform: translateY(-5px) scale(1.02); border-color: #FFD700; box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3); }
+        .feature-card.expanded { transform: scale(1.05); border-color: #FFD700; background: linear-gradient(145deg, rgba(255, 215, 0, 0.15), rgba(255, 107, 53, 0.1)); }
+        .feature-icon { font-size: 3rem; margin-bottom: 1rem; color: #FFD700; transition: all 0.3s ease; }
+        .feature-card:hover .feature-icon { transform: scale(1.2) rotate(10deg); }
+        .feature-title { font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; color: #FFD700; }
+        .feature-description { color: #ccc; line-height: 1.6; transition: all 0.3s ease; }
+        .feature-details { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255, 215, 0, 0.3); color: #aaa; font-size: 0.9rem; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .feature-card.expanded .feature-details { max-height: 200px; }
+        .feature-action-btn { background: linear-gradient(45deg, #FFD700, #FF6B35); color: #000; border: none; padding: 8px 16px; border-radius: 15px; font-size: 0.9rem; font-weight: bold; cursor: pointer; margin-top: 1rem; transition: all 0.3s ease; opacity: 0; transform: translateY(10px); }
+        .feature-card.expanded .feature-action-btn { opacity: 1; transform: translateY(0); }
+        .feature-action-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4); }
+        .feature-modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px); }
+        .modal-content { background: linear-gradient(145deg, rgba(26, 26, 46, 0.95), rgba(10, 10, 10, 0.95)); margin: 5% auto; padding: 2rem; border: 2px solid #FFD700; border-radius: 20px; width: 90%; max-width: 600px; position: relative; backdrop-filter: blur(10px); transform: scale(1); opacity: 1; }
+        .close-modal { color: #FFD700; float: right; font-size: 2rem; font-weight: bold; cursor: pointer; transition: color 0.3s ease; }
+        .close-modal:hover { color: #FF6B35; }
+        .stats-section { padding: 5rem 0; background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 107, 53, 0.1)); }
+        .stats-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; text-align: center; overflow-x: auto; white-space: nowrap; }
+        .stat-item { background: rgba(0, 0, 0, 0.3); padding: 1.5rem 1rem; border-radius: 15px; backdrop-filter: blur(10px); min-width: 150px; height: 160px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        @media (max-width: 1200px) { .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; } }
+        @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; } }
+        @media (max-width: 480px) { .stats-grid { grid-template-columns: 1fr; gap: 1rem; } }
+        .stat-number { font-size: 2.8rem; font-weight: bold; color: #FFD700; display: block; line-height: 1.2; }
+        .stat-label { font-size: 1rem; margin-top: 0.5rem; color: #ccc; text-align: center; max-width: 140px; word-wrap: break-word; line-height: 1.3; }
+        .cta-section { padding: 5rem 0; text-align: center; background: linear-gradient(135deg, #0a0a0a, #1a1a2e); }
+        .cta-button { background: linear-gradient(45deg, #FFD700, #FF6B35); color: #000; padding: 20px 40px; border: none; border-radius: 30px; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; margin: 1rem; }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(255, 215, 0, 0.4); }
+        .floating-elements { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+        .floating-element { position: absolute; opacity: 0.1; animation: float 8s ease-in-out infinite; }
+        .floating-element:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .floating-element:nth-child(2) { top: 60%; right: 10%; animation-delay: 3s; }
+        .floating-element:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 6s; }
+        @keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-30px) rotate(180deg); } }
+        @media (max-width: 768px) { .hero-content h1 { font-size: 2.5rem; } .plans-grid { grid-template-columns: 1fr; } .plan-card.popular { transform: none; } .nav-links { flex-direction: column; gap: 1rem; } .modal-content { width: 95%; margin: 10% auto; padding: 1.5rem; } }
     </style>
 </head>
 <body>
@@ -602,12 +93,12 @@
             </div>
             <ul class="nav-links">
                 <li><a href="index.html" class="back-home">← Back to Home</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="login.html" id="loginNavBtn">Login</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="hero-section">
+    <div class="hero-section" style="background-image: none;">
         <div class="container">
             <div class="hero-content">
                 <div class="premium-badge">✨ PREMIUM EXPERIENCE ✨</div>
@@ -621,8 +112,6 @@
         <div class="container">
             <h2 class="section-title">Choose Your Divine Plan</h2>
             <div class="plans-grid">
-                
-                <!-- Basic Plan -->
                 <div class="plan-card">
                     <div class="plan-name">Sacred Basic</div>
                     <div class="plan-price">₹299</div>
@@ -635,10 +124,8 @@
                         <li>Email prayer updates</li>
                         <li>Access to 10+ prayer recordings</li>
                     </ul>
-                    <button class="plan-button" onclick="selectPlan('basic')">Start Basic Plan</button>
+                    <button class="plan-button">Start Basic Plan</button>
                 </div>
-
-                <!-- Premium Plan -->
                 <div class="plan-card popular">
                     <div class="popular-badge">MOST POPULAR</div>
                     <div class="plan-name">Sacred Premium</div>
@@ -654,10 +141,8 @@
                         <li>Personal prayer requests</li>
                         <li>Festival special chanting</li>
                     </ul>
-                    <button class="plan-button" onclick="selectPlan('premium')">Start Premium Plan</button>
+                    <button class="plan-button">Start Premium Plan</button>
                 </div>
-
-                <!-- Annual Plan -->
                 <div class="plan-card">
                     <div class="plan-name">Sacred Annual</div>
                     <div class="plan-price">₹4,999</div>
@@ -672,7 +157,7 @@
                         <li>Free ceremony consultations</li>
                         <li>Personalized prayer calendar</li>
                     </ul>
-                    <button class="plan-button" onclick="selectPlan('annual')">Start Annual Plan</button>
+                    <button class="plan-button">Start Annual Plan</button>
                 </div>
             </div>
         </div>
@@ -692,7 +177,7 @@
                         <p>• Customizable frequency and timing</p>
                         <p>• Certificate of completion provided</p>
                     </div>
-                    <button class="feature-action-btn" onclick="openFeatureModal('chanting')">Learn More</button>
+                    <button class="feature-action-btn" data-feature="chanting">Learn More</button>
                 </div>
                 <div class="feature-card" data-feature="slots">
                     <div class="feature-icon">⏰</div>
@@ -704,7 +189,7 @@
                         <p>• Reminder notifications</p>
                         <p>• Reschedule options available</p>
                     </div>
-                    <button class="feature-action-btn" onclick="openFeatureModal('slots')">Schedule Now</button>
+                    <button class="feature-action-btn" data-feature="slots">Schedule Now</button>
                 </div>
                 <div class="feature-card" data-feature="live">
                     <div class="feature-icon">📱</div>
@@ -712,11 +197,11 @@
                     <div class="feature-description">Join live prayer sessions and witness your name being chanted in real-time. Feel connected to the divine from anywhere in the world.</div>
                     <div class="feature-details">
                         <p>• HD video streaming of ceremonies</p>
-                        <p>• Interactive chat with pandits</p>
-                        <p>• Multiple camera angles</p>
-                        <p>• Session recordings available</p>
+                        <p>• Multiple camera angles for complete view</p>
+                        <p>• Real-time chat with pandits</p>
+                        <p>• Live participation in prayers</p>
                     </div>
-                    <button class="feature-action-btn" onclick="openFeatureModal('live')">Join Live</button>
+                    <button class="feature-action-btn" data-feature="live">Join Live</button>
                 </div>
                 <div class="feature-card" data-feature="recordings">
                     <div class="feature-icon">🎧</div>
@@ -728,7 +213,7 @@
                         <p>• Organized by date and ceremony type</p>
                         <p>• Meditation and sleep playlists</p>
                     </div>
-                    <button class="feature-action-btn" onclick="openFeatureModal('recordings')">Browse Library</button>
+                    <button class="feature-action-btn" data-feature="recordings">Browse Library</button>
                 </div>
                 <div class="feature-card" data-feature="certificates">
                     <div class="feature-icon">📜</div>
@@ -740,7 +225,7 @@
                         <p>• Detailed prayer history tracking</p>
                         <p>• Shareable on social media</p>
                     </div>
-                    <button class="feature-action-btn" onclick="openFeatureModal('certificates')">View Samples</button>
+                    <button class="feature-action-btn" data-feature="certificates">View Samples</button>
                 </div>
                 <div class="feature-card" data-feature="festivals">
                     <div class="feature-icon">🌟</div>
@@ -752,19 +237,16 @@
                         <p>• Special mantras for each festival</p>
                         <p>• Community participation options</p>
                     </div>
-                    <button class="feature-action-btn" onclick="openFeatureModal('festivals')">Festival Calendar</button>
+                    <button class="feature-action-btn" data-feature="festivals">Festival Calendar</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Feature Modal -->
-    <div id="featureModal" class="feature-modal">
+    <div class="feature-modal" id="featureModal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeFeatureModal()">&times;</span>
-            <div id="modalContent">
-                <!-- Dynamic content will be loaded here -->
-            </div>
+            <span class="close-modal">&times;</span>
+            <div id="modalContent"></div>
         </div>
     </div>
 
@@ -772,30 +254,12 @@
         <div class="container">
             <h2 class="section-title">Our Impact</h2>
             <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number">50,000+</span>
-                    <span class="stat-label">Names Chanted Daily</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">10,000+</span>
-                    <span class="stat-label">Premium Subscribers</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">1.2M+</span>
-                    <span class="stat-label">Prayer Sessions</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label">Divine Service</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">99.9%</span>
-                    <span class="stat-label">Satisfaction Rate</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">365</span>
-                    <span class="stat-label">Days of Blessings</span>
-                </div>
+                <div class="stat-item"><span class="stat-number">50,000+</span><span class="stat-label">Names Chanted Daily</span></div>
+                <div class="stat-item"><span class="stat-number">10,000+</span><span class="stat-label">Premium Subscribers</span></div>
+                <div class="stat-item"><span class="stat-number">1.2M+</span><span class="stat-label">Prayer Sessions</span></div>
+                <div class="stat-item"><span class="stat-number">24/7</span><span class="stat-label">Divine Service</span></div>
+                <div class="stat-item"><span class="stat-number">99.9%</span><span class="stat-label">Satisfaction Rate</span></div>
+                <div class="stat-item"><span class="stat-number">365</span><span class="stat-label">Days of Blessings</span></div>
             </div>
         </div>
     </div>
@@ -809,391 +273,7 @@
         </div>
     </div>
 
-    <script>
-        function selectPlan(planType) {
-            // Store selected plan in localStorage
-            localStorage.setItem('selectedPlan', planType);
-            
-            // Redirect to login page
-            window.location.href = 'login.html?plan=' + planType;
-        }
-
-        // Feature card interactivity
-        document.addEventListener('DOMContentLoaded', function() {
-            const featureCards = document.querySelectorAll('.feature-card');
-            
-            featureCards.forEach(card => {
-                card.addEventListener('click', function(e) {
-                    // Don't expand if clicking on the action button
-                    if (e.target.classList.contains('feature-action-btn')) {
-                        return;
-                    }
-                    
-                    // Toggle expanded state
-                    const isExpanded = this.classList.contains('expanded');
-                    
-                    // Close all other expanded cards
-                    featureCards.forEach(otherCard => {
-                        otherCard.classList.remove('expanded');
-                    });
-                    
-                    // Toggle current card
-                    if (!isExpanded) {
-                        this.classList.add('expanded');
-                    }
-                });
-            });
-
-            //```html:about-llc.html
-            // Animate stats on scroll
-            const observerOptions = {
-                threshold: 0.5,
-                rootMargin: '0px 0px -100px 0px'
-            };
-
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const statNumbers = entry.target.querySelectorAll('.stat-number');
-                        statNumbers.forEach(stat => {
-                            const finalText = stat.textContent;
-                            
-                            // Handle different number formats
-                            if (finalText === '24/7') {
-                                // Skip animation for 24/7
-                                return;
-                            }
-                            
-                            if (finalText.includes('%')) {
-                                // Handle percentages
-                                const finalNumber = parseFloat(finalText.replace('%', ''));
-                                animateNumber(stat, 0, finalNumber, '%');
-                            } else if (finalText.includes('M+')) {
-                                // Handle millions - fixed logic
-                                const finalNumber = parseFloat(finalText.replace('M+', ''));
-                                animateNumberWithSuffix(stat, 0, finalNumber * 1000000, 'M+');
-                            } else if (finalText.includes('K+') || finalText.includes(',')) {
-                                // Handle thousands
-                                const cleanNumber = parseInt(finalText.replace(/[^\d]/g, ''));
-                                animateNumberWithSuffix(stat, 0, cleanNumber, '+');
-                            } else {
-                                // Handle regular numbers
-                                const finalNumber = parseInt(finalText.replace(/[^\d]/g, ''));
-                                animateNumber(stat, 0, finalNumber, '');
-                            }
-                        });
-                    }
-                });
-            }, observerOptions);
-
-            function animateNumber(element, start, end, suffix) {
-                const duration = 2000;
-                const increment = (end - start) / (duration / 50);
-                let current = start;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= end) {
-                        current = end;
-                        clearInterval(timer);
-                    }
-                    element.textContent = Math.floor(current).toLocaleString() + suffix;
-                }, 50);
-            }
-
-            function animateNumberWithSuffix(element, start, end, suffix) {
-                const duration = 2000;
-                const increment = (end - start) / (duration / 50);
-                let current = start;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= end) {
-                        current = end;
-                        clearInterval(timer);
-                    }
-                    
-                    let displayValue;
-                    if (suffix === 'M+') {
-                        displayValue = (current / 1000000).toFixed(1) + 'M+';
-                    } else if (current >= 1000) {
-                        displayValue = (current / 1000).toFixed(0) + 'K+';
-                    } else {
-                        displayValue = Math.floor(current).toLocaleString() + '+';
-                    }
-                    
-                    element.textContent = displayValue;
-                }, 50);
-            }
-
-            const statsSection = document.querySelector('.stats-section');
-            if (statsSection) {
-                observer.observe(statsSection);
-            }
-
-            // Add hover effects to cards
-            const cards = document.querySelectorAll('.plan-card');
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    if (!this.classList.contains('popular')) {
-                        this.style.transform = 'translateY(-10px) scale(1.02)';
-                    }
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    if (!this.classList.contains('popular')) {
-                        this.style.transform = 'translateY(0) scale(1)';
-                    }
-                });
-            });
-        });
-
-        // Feature modal functionality
-        function openFeatureModal(featureType) {
-            const modal = document.getElementById('featureModal');
-            const modalContent = document.getElementById('modalContent');
-            
-            const featureData = {
-                chanting: {
-                    title: 'Personalized Chanting Service',
-                    content: `
-                        <h3 style="color: #FFD700; margin-bottom: 1rem;">🎵 Personalized Chanting</h3>
-                        <p style="margin-bottom: 1rem;">Experience the power of personalized mantras and chanting sessions designed specifically for you.</p>
-                        
-                        <h4 style="color: #FFD700; margin: 1.5rem 0 0.5rem 0;">What's Included:</h4>
-                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                            <li>Daily chanting of your name during sacred rituals</li>
-                            <li>Customized mantras based on your birth details</li>
-                            <li>High-quality audio recordings of each session</li>
-                            <li>Sanskrit pronunciation guide</li>
-                            <li>Personalized blessing certificates</li>
-                        </ul>
-                        
-                        <h4 style="color: #FFD700; margin: 1.5rem 0 0.5rem 0;">Benefits:</h4>
-                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                            <li>Positive energy and spiritual vibrations</li>
-                            <li>Enhanced meditation and mindfulness</li>
-                            <li>Stress relief and mental peace</li>
-                            <li>Spiritual growth and connection</li>
-                        </ul>
-                        
-                        <div style="text-align: center; margin-top: 2rem;">
-                            <button onclick="selectPlan('premium')" style="background: linear-gradient(45deg, #FFD700, #FF6B35); color: #000; border: none; padding: 12px 24px; border-radius: 20px; font-weight: bold; cursor: pointer;">Start Chanting Service</button>
-                        </div>
-                    `
-                },
-                slots: {
-                    title: 'Scheduled Prayer Slots',
-                    content: `
-                        <h3 style="color: #FFD700; margin-bottom: 1rem;">⏰ Scheduled Prayer Slots</h3>
-                        <p style="margin-bottom: 1rem;">Book your preferred time slots for personalized prayer sessions at the most auspicious times.</p>
-                        
-                        <h4 style="color: #FFD700; margin: 1.5rem 0 0.5rem 0;">Available Time Slots:</h4>
-                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                            <li><strong>Brahma Muhurta:</strong> 4:00 AM - 6:00 AM (Most auspicious)</li>
-                            <li><strong>Morning Prayers:</strong> 6:00 AM - 8:00 AM</li>
-                            <li><strong>Afternoon Session:</strong> 12:00 PM - 2:00 PM</li>
-                            <li><strong>Evening Aarti:</strong> 6:00 PM - 8:00 PM</li>
-                            <li><strong>Night Prayers:</strong> 8:00 PM - 10:00 PM</li>
-                        </ul>
-                        
-                        <h4 style="color: #FFD700; margin: 1.5rem 0 0.5rem 0;">Scheduling Features:</h4>
-                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                            <li>Flexible booking up to 30 days in advance</li>
-                            <li>Automatic timezone conversion</li>
-                            <li>SMS and email reminders</li>
-                            <li>Easy rescheduling options</li>
-                            <li>Recurring slot bookings available</li>
-                        </ul>
-                        
-                        <div style="text-align: center; margin-top: 2rem;">
-                            <button onclick="window.location.href='login.html'" style="background: linear-gradient(45deg, #FFD700, #FF6B35); color: #000; border: none; padding: 12px 24px; border-radius: 20px; font-weight: bold; cursor: pointer;">Book Prayer Slot</button>
-                        </div>
-                    `
-                },
-                live: {
-                    title: 'Live Prayer Sessions',
-                    content: `
-                        <h3 style="color: #FFD700; margin-bottom: 1rem;">📱 Live Prayer Sessions</h3>
-                        <p style="margin-bottom: 1rem;">Join live streaming prayer sessions and witness your personalized rituals in real-time.</p>
-                        
-                        <h4 style="color: #FFD700; margin: 1.5rem 0 0.5rem 0;">Live Features:</h4>
-                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                            <li>HD video streaming from our temple</li>
-                            <li>Multiple camera angles for complete view</li>
-                            <li>Real-time chat with pandits</li>
-                            <li>Live participation in prayers</li>
-                            <li>Interactive blessing ceremonies</li>
-                        </ul>
-                        
-                        <h4 style="color: #FFD700; margin: 1.5rem 0 0.5rem 0;">Upcoming Live Sessions:</h4>
-                        <div style="background: rgba(255, 215, 0, 0.1); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
-                            <p><strong>Today 6:00 PM:</strong> Evening Aarti & Chanting</p>
-                            <p><strong>Tomorrow 6:00 AM:</strong> Morning Prayers & Mantras</p>
-                            <p><strong>Friday 7:00 PM:</strong> Special Festival Ceremony</p>
-                        </div>
-                        
-                        <div style="text-align: center; margin-top: 2rem;">
-                            <button onclick="alert('Live session will start soon!')" style="background: linear-gradient(45deg, #FFD700, #FF6B35); color: #000; border: none; padding: 12px 24px; border-radius: 20px; font-weight: bold; cursor: pointer;">Join Live Session</button>
-                        </div>
-                    `
-                },
-                recordings: {
-                    title: 'Prayer Recordings Library',
-                    content: `
-                        <h3 style="color: #FFD700; margin-bottom: 1rem;">🎧 Prayer Recordings</h3>
-                        <p style="margin-bottom: 1rem;">Access our extensive library of prayer recordings, mantras, and personalized chanting sessions.</p>
-                        
-                        <h4 style="color: #FFD700; margin: 1.5rem 0 0.5rem 0;">Recording Categories:</h4>
-                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                            <li><strong>Personal Chanting:</strong> Your name chanted in various mantras</li>
-                            <li><strong>Classical Mantras:</strong> Traditional Sanskrit chants</li>
-                            <li><strong>Meditation Music:</strong> Peaceful background for meditation</li>
-                            <li><strong>Festival Specials:</strong> Recordings from special ceremonies</li>
-                            <li><strong>Sleep Prayers:</strong> Gentle chants for peaceful sleep</li>
-                        </ul>
-                        
-                        <h4 style="color: #FFD700; margin: 1.5rem 0 0.5rem 0;">Audio Quality:</h4>
-                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                            <li>High-definition audio (320kbps)</li>
-                            <li>Professional studio recording</li>
-                            <li>Noise-free crystal clear sound</li>
-                            <li>Available in multiple formats (MP3, FLAC)</li>
-                            <li>Offline download capability</li>
-                        </ul>
-                        
-                        <div style="text-align: center; margin-top: 2rem;">
-                            <button onclick="alert('Redirecting to audio library...')" style="background: linear-gradient(45deg, #FFD700, #FF6B35); color: #000; border: none; padding: 12px 24px; border-radius: 20px; font-weight: bold; cursor: pointer;">Browse Library</button>
-                        </div>
-                    `
-                },
-                certificates: {
-                    title: 'Digital Blessing Certificates',
-                    content: `
-                        <h3 style="color: #FFD700; margin-bottom: 1rem;">📜 Blessing Certificates</h3>
-                        <p style="margin-bottom: 1rem;">Receive beautiful digital certificates after each prayer session as proof of your spiritual journey.</p>
-                        
-                        <h4 style="color: #FFD700; margin: 1.5rem 0 0.5rem 0;">Certificate Features:</h4>
-                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                            <li>Personalized with your name and details</li>
-                            <li>Date and time of prayer session</li>
-                            <li>Type of mantras and rituals performed</li>
-                            <li>Digital signature of performing pandit</li>
-                            <li>Unique verification code</li>
-                        </ul>
-                        
-                        <h4 style="color: #FFD700; margin: 1.5rem 0 0.5rem 0;">Certificate Types:</h4>
-                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                            <li><strong>Daily Prayer Certificate:</strong> For regular sessions</li>
-                            <li><strong>Special Occasion Certificate:</strong> For festivals and events</li>
-                            <li><strong>Milestone Certificate:</strong> For completing prayer cycles</li>
-                            <li><strong>Annual Blessing Certificate:</strong> Yearly spiritual summary</li>
-                        </ul>
-                        
-                        <div style="background: rgba(255, 215, 0, 0.1); padding: 1rem; border-radius: 10px; margin: 1rem 0; text-align: center;">
-                            <p style="margin-bottom: 0.5rem;"><strong>Sample Certificate Preview</strong></p>
-                            <div style="border: 2px solid #FFD700; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3);">
-                                <p style="color: #FFD700; font-weight: bold;">🕉️ SACRED SERVICES PREMIUM 🕉️</p>
-                                <p>This certifies that</p>
-                                <p style="font-size: 1.2rem; color: #FFD700;"><strong>[Your Name]</strong></p>
-                                <p>has received divine blessings through personalized chanting</p>
-                                <p>Date: [Session Date] | Session ID: [Unique ID]</p>
-                            </div>
-                        </div>
-                        
-                        <div style="text-align: center; margin-top: 2rem;">
-                            <button onclick="selectPlan('basic')" style="background: linear-gradient(45deg, #FFD700, #FF6B35); color: #000; border: none; padding: 12px 24px; border-radius: 20px; font-weight: bold; cursor: pointer;">Get Your Certificate</button>
-                        </div>
-                    `
-                },
-                festivals: {
-                    title: 'Festival Special Ceremonies',
-                    content: `
-                        <h3 style="color: #FFD700; margin-bottom: 1rem;">🌟 Festival Specials</h3>
-                        <p style="margin-bottom: 1rem;">Participate in grand festival celebrations with special chanting sessions and elaborate rituals.</p>
-                        
-                        <h4 style="color: #FFD700; margin: 1.5rem 0 0.5rem 0;">Upcoming Festivals:</h4>
-                        <div style="background: rgba(255, 215, 0, 0.1); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
-                            <p><strong>Diwali Celebration:</strong> 5-day special ceremony</p>
-                            <p><strong>Navratri Festival:</strong> 9 nights of divine chanting</p>
-                            <p><strong>Maha Shivratri:</strong> All-night prayer session</p>
-                            <p><strong>Holi Festival:</strong> Color celebration with mantras</p>
-                            <p><strong>Ganesh Chaturthi:</strong> 11-day special prayers</p>
-                        </div>
-                        
-                        <h4 style="color: #FFD700; margin: 1.5rem 0 0.5rem 0;">Festival Features:</h4>
-                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                            <li>Extended chanting sessions (up to 108 times)</li>
-                            <li>Traditional decorations and setup</li>
-                            <li>Special festival mantras and stotras</li>
-                            <li>Community participation with other devotees</li>
-                            <li>Live streaming of entire ceremony</li>
-                            <li>Special festival blessing certificates</li>
-                        </ul>
-                        
-                        <h4 style="color: #FFD700; margin: 1.5rem 0 0.5rem 0;">Exclusive Benefits:</h4>
-                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                            <li>Priority booking for festival sessions</li>
-                            <li>Complimentary prasadam delivery</li>
-                            <li>Festival-specific mantras for your name</li>
-                            <li>Group chanting with other premium members</li>
-                        </ul>
-                        
-                        <div style="text-align: center; margin-top: 2rem;">
-                            <button onclick="selectPlan('annual')" style="background: linear-gradient(45deg, #FFD700, #FF6B35); color: #000; border: none; padding: 12px 24px; border-radius: 20px; font-weight: bold; cursor: pointer;">Join Festival Celebrations</button>
-                        </div>
-                    `
-                }
-            };
-            
-            modalContent.innerHTML = featureData[featureType].content;
-            modal.style.display = 'block';
-            
-            // Add animation
-            setTimeout(() => {
-                modal.querySelector('.modal-content').style.transform = 'scale(1)';
-                modal.querySelector('.modal-content').style.opacity = '1';
-            }, 10);
-        }
-
-        function closeFeatureModal() {
-            const modal = document.getElementById('featureModal');
-            modal.style.display = 'none';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('featureModal');
-            if (event.target === modal) {
-                closeFeatureModal();
-            }
-        }
-
-        // Add parallax effect to floating elements
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelectorAll('.floating-element');
-            const speed = 0.5;
-
-            parallax.forEach(element => {
-                const yPos = -(scrolled * speed);
-                element.style.transform = `translateY(${yPos}px)`;
-            });
-        });
-
-        // Add smooth scrolling for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="js/auth.js"></script>
+    <script src="js/premium.js"></script>
 </body>
 </html>
